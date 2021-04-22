@@ -1,62 +1,51 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+Lavuta：線上報修系統開發
+==
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+最近剛好接到小案子要做一套線上報修系統，所以就選擇用 Lavuta 來實現。
 
-## About Laravel
+那其實雖然看起來很中二，不過我只是不想讓名字太長， Lavuta 是我自己隨便亂取的縮寫，其實原意就是 **`La`** ravel + **`Vu`** e + **`Ta`** ilwindcss。本來就是要做這三個的整合教學，就乾脆剛好利用這個機會來實現。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+沒意外的話，下一篇才會開始講架構，那所以這篇我們就先來談談為何要選用這三個東西的組合。
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Laravel
+--
+首先來聊聊 Laravel。Laravel 是一個 ***`MVC 架構的 PHP 框架`***，標榜「為網頁藝術家創造的PHP 框架」，雖然我也不是很懂為什麼要這樣寫，但不外乎就是框架本身美得像藝術吧？ 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+那麼這就要說到，一般來說任何後端語言都是一樣，沒有定義所謂的系統架構，==系統架構本身都是開發者自己規劃和定義==的，那像現在常見的 **`MVC 架構`** 就是一個常見的規範，善用後端語言的 **`include`、`物件導向` 和 `樣板`** 的功能來做出漂亮的系統架構，依循這些架構去開發系統，會讓你在開發的時候：
 
-## Learning Laravel
+- 開發邏輯清晰
+- 維護時間及成本降低
+- 程式碼可讀性高
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+不過要擁有上述優點，可不是只要靠前面說的 include、物件導向和樣板就夠了，我只有說善用這些。其實還有最重要的是 ***檔案存放的分類法則***，比如 MVC 架構分別就是 Model、View、Controller，以 laravel 舉例，這三者的職責與檔案分類大約如下：
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Model
+| 職責 | 後端，負責商業邏輯、資料驗證、與資料庫溝通、API內容 |
+|-|-|
+| 檔案 | 資料夾通常叫 Models |
 
-## Laravel Sponsors
+### View
+| 職責 | 前端，負責畫面排版、使用者操作、使用者事件、呈現資料、抓取API提供的內容 |
+|-|-|
+| 檔案 | 資料夾通常叫 Views |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Controller
+| 職責 | 基本上是路由，判斷瀏覽的頁面是甚麼，載入相關所需的功能，如瀏覽的是會員頁面，就載入會員頁面的後端功能，和載入會員頁面的前端版面，而組成你所看到的會員頁面。 |
+|-|-|
+| 檔案 | 資料夾通常叫 Controllers |
+<br>
 
-### Premium Partners
+Vue
+--
+Vue 是前端三大框架之一，這邊使用的版本是 Vue 2
+<br>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+Tailwindcss
+--
+Tailwindcss
+<br>
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+後記
+--
+其實 Vue 已經出到 3 了，可是在 Laravel 安裝要另外做設定，那就不會是這系列教學 / 這個案子的首選了，畢竟這個案子做歸做，但是也是順便拿來寫教學內容用的，不但可以讓後面接手的人從零開始了解這個案子，還可以讓其它想學的人好入門。
